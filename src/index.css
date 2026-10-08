@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+
+    /* Light Mode Tokens */
+    --bg-primary: #f8f9fe;
+    --bg-secondary: #ffffff;
+    --bg-elevated: rgba(255, 255, 255, 0.85);
+    --border-color: rgba(107, 70, 193, 0.15);
+    --text-primary: #181f3a;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    --accent-glow: rgba(132, 80, 216, 0.15);
+  }
+
+  .dark {
+    /* Dark Mode Tokens (Celestial Midnight) */
+    --bg-primary: #070913;
+    --bg-secondary: #0b0f1d;
+    --bg-elevated: rgba(17, 22, 43, 0.75);
+    --border-color: rgba(159, 106, 245, 0.2);
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --accent-glow: rgba(159, 106, 245, 0.25);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    overflow-x: hidden;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Glassmorphism Surface Utilities */
+.glass-panel {
+  background: var(--bg-elevated);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+}
+
+.glass-card {
+  background: var(--bg-elevated);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(159, 106, 245, 0.4);
+  box-shadow: 0 8px 30px -4px var(--accent-glow);
+}
+
+/* Safe Area Utility Classes */
+.pt-safe {
+  padding-top: max(env(safe-area-inset-top, 0px), 12px);
+}
+
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+}
+
+.pl-safe {
+  padding-left: max(env(safe-area-inset-left, 0px), 16px);
+}
+
+.pr-safe {
+  padding-right: max(env(safe-area-inset-right, 0px), 16px);
+}
+
+/* Celestial Glows */
+.text-glow {
+  text-shadow: 0 0 16px rgba(159, 106, 245, 0.6);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 16px rgba(246, 195, 67, 0.6);
+}
+
+/* Custom Scrollbar for Desktop/Tablet */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(159, 106, 245, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(159, 106, 245, 0.45);
+}
